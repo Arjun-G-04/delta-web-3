@@ -24,7 +24,7 @@ The back end of my web application is run using **Express**, a popular backend f
 - Set up basic components for home page
 
 ## Database
-I am using **MySQL** for managing the database. It is a widely used for implementing relational databases.
+I am using **MySQL** for managing the database. It is widely used for implementing relational databases.
 
 # Objectives
 ## Normal Mode
