@@ -14,6 +14,7 @@ The back end of my web application is run using **Express**, a popular backend f
 - **mysql2** - for database management
 - **sequelize, sequelize-cli** - for better database related code inside node js
 - **nodemon** - for faster back end development
+- **bcrypt** - for hashing password
 
 # Front end
 ## Overview
@@ -21,6 +22,13 @@ The back end of my web application is run using **Express**, a popular backend f
 
 ## Progress
 - Set up basic components for home page
+
+## Packages
+- **react** - for react
+- **axios** - for handling API requests
+- **react-router-dom** - for routing the URLs
+- **formik** - for creating and handling forms
+- **yup** - for form validation ie. checking whether requirements met
 
 # Database
 I am using **MySQL** for managing the database. It is widely used for implementing relational databases.

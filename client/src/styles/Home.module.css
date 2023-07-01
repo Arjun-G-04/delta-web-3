@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    height: 60vh;
+    width: 80vw;
+    background-color: rgb(232, 66, 24);
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleAndButtons {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 30px;
+    width: 40vw;
+}
+
+.titleAndButtons div {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 20px;
+}
+
+.titleAndButtons h1 {
+    font-family: 'Fascinate Inline', cursive;
+    font-size: 50px;
+}
+
+.titleAndButtons button {
+    background-color: rgb(255, 204, 0);
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family: 'Work Sans', sans-serif;
+    border: none;
+    font-size: 20px;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.titleAndButtons button:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 16px;
+    transform: translateY(-3px);
+}
+
+.titleImageBackground {
+    background-color: rgb(255, 204, 0);
+    border-radius: 50%;
+    width: 50vmin;
+    height: 50vmin;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 30px;
+}
+
+.titleImageBackground div {
+    background-image: url('../../titleImage.png');
+    background-size: cover;
+    border-radius: 50%;
+    width: 50vmin;
+    height: 50vmin;
+    background-position: top 0vmin left -10vmin;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
