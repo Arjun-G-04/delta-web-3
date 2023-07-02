@@ -67,7 +67,7 @@
 }
 
 .titleImageBackground div {
-    background-image: url('../../titleImage.png');
+    background-image: url('../../public/titleImage.png');
     background-size: cover;
     border-radius: 50%;
     width: 50vmin;

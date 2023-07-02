@@ -68,3 +68,27 @@
     font-size: 14px;
     margin-top: 3px;
 }
+
+.passError {
+    color: red;
+    font-size: 14px;
+    margin-top: 30px;
+    align-self: center;
+}
+
+.loader {
+    margin-top: 30px;
+    align-self: center;
+    border: 8px solid rgba(0,0,0,0.1);
+    border-bottom: 8px solid rgb(13, 114, 209);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation: spin 1.5s ease-in-out infinite;
+    transition: all 0.2s ease ;
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}

@@ -17,7 +17,7 @@ export default function Register(){
                 navigate('/')
             }, 3000)
         }
-    }, [isCreated])
+    }, [isCreated, navigate])
 
     const initialValues = {
         fullName:"",
@@ -41,8 +41,8 @@ export default function Register(){
         axios.get('http://localhost:3001/usernames')
             .then((res) => {
                 let listOfUsernames = []
-                res.data.map((value, key) => {
-                    listOfUsernames.push(value['username'])
+                listOfUsernames = res.data.map((value, key) => {
+                    return value['username']
                 })
                 setUsernames(listOfUsernames)
             })

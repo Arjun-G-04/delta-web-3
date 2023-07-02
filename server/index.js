@@ -11,6 +11,9 @@ app.use(cors())
 const manageAccountsRouter = require("./routes/manageAccounts")
 app.use("", manageAccountsRouter)
 
+const userHubRouter = require("./routes/userHub")
+app.use("/hub", userHubRouter)
+
 // Sync tables and start the server
 db.sequelize.sync().then(() => {
     app.listen(3001, () => {
