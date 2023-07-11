@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.body {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: white;
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+}
+
+.searchBox {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 4vh;
+    width: 80%;
+    border-radius: 16px;
+    align-items: center;
+    background-color: rgb(241, 236, 236);
+    margin-left: 2rem;
+}
+
+.searchIcon {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 100%;
+    margin-left: 1rem;
+}
+
+.searchInput {
+    margin-left: 1rem;
+    appearance: none;
+    border: none;
+    width: 90%;
+    height: 90%;
+    background: transparent;
+}
+   
+.searchIcon::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    width: 2px;
+    height: 8px;
+    background: currentColor;
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 12px
+} 
+
+.user {
+    font-family: 'Work Sans', sans-serif;
+    margin-left: auto;
+    margin-right: 2rem;
+    font-size: 130%;
+    cursor: pointer;
+}

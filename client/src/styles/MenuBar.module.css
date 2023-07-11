@@ -8,10 +8,10 @@
 .menu {
     display: flex;
     flex-flow: column nowrap;
-    width: 13vw;
-    height: 94vh;
     padding-top: 3vh;
     padding-bottom: 3vh;
+    width: 13vw;
+    height: 94vh;
     background-color: rgb(232, 66, 24);
 }
 
@@ -55,4 +55,8 @@
 
 .inactive {
     opacity: 50%
+}
+
+.logout {
+    margin-top: auto;
 }

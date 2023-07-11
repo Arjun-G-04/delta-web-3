@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
+const { Users } = require('../models')
 
 require('dotenv').config()
 const jwtSecret = process.env.JWT_SECRET
@@ -22,8 +23,9 @@ const verifyJWT = (req, res, next) => {
     }
 }
 
-router.get("/home", verifyJWT, (req, res) => {
-    res.json({auth: true, userID: req.userID})
+router.get("/home", verifyJWT, async (req, res) => {
+    const user = await Users.findOne({ where: {id: req.userID}})
+    res.json({auth: true, userID: req.userID, fullName: user.fullName})
 })
 
 module.exports = router

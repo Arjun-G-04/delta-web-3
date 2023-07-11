@@ -1,12 +1,14 @@
 import styles from "../styles/MenuBar.module.css"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function MenuBar(props) {
     const { loc } = props
     const [isHome, setIsHome] = useState(false)
     const [isHistory, setIsHistory] = useState(false)
     const [isFriends, setIsFriends] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (loc === "home") {
@@ -16,7 +18,12 @@ export default function MenuBar(props) {
         } else if (loc === "friends") {
             setIsFriends(true)
         }
-    }, [])
+    }, [loc])
+
+    function logout() {
+        localStorage.removeItem("token")
+        navigate("/")
+    }
 
     return <div className={styles.menu}>
         <Link to="/home" style={{ textDecoration: 'none' }}>
@@ -38,11 +45,11 @@ export default function MenuBar(props) {
             </div>
         </Link>
 
-        <Link to="/logout" style={{ textDecoration: 'none' }}>
-            <div style={{ alignSelf: 'flex-end' }} className={`${styles.menuItem} ${styles.inactive}`}>
+        <div className={styles.logout}>
+            <div onClick={logout} className={`${styles.menuItem} ${styles.inactive}`}>
                 <div style={{backgroundImage: `url('./logout.png')`}} className={styles.icon}></div>
                 <div className={styles.text}>Logout</div>
             </div>
-        </Link>
+        </div>
     </div>
 }

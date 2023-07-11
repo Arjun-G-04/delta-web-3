@@ -1,4 +1,5 @@
 // Express and database
+// gcloud sql connect delta-web-3-db --user=root
 const express = require('express')
 const app = express()
 const db = require('./models')
@@ -20,3 +21,7 @@ db.sequelize.sync().then(() => {
         console.log("Server has started!")
     })
 })
+
+// "dialectOptions": {
+    //   "socketPath": "./cloudsql/wise-diagram-392116:us-central1:delta-web-3-db"
+    // }

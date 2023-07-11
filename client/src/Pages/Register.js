@@ -28,7 +28,7 @@ export default function Register(){
 
     const validationSchema = Yup.object().shape({
         fullName: Yup.string().required("Please enter your full name"),
-        username: Yup.string().required("Please enter username")
+        username: Yup.string().required("Please enter username").matches(/^\S*$/, "Username must not have space(s)")
         .notOneOf(usernames, "Sorry, username already taken"),
         password: Yup.string().required("Please enter password")
         .min(7, "Password must be atleast 7 characters")
