@@ -1,25 +1,22 @@
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define("User", {
-        username: {
+    const Quiz = sequelize.define("Quiz", {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        fullName: {
+        visibility: {
             type: DataTypes.STRING,
             allowNull: false
         }
     })
 
-    User.associate = (models) => {
-        User.hasMany(models.Quiz, {
+    Quiz.associate = (models) => {
+        Quiz.belongsTo(models.User)
+        Quiz.hasMany(models.Question, {
             onDelete: "CASCADE",
             onUpdate: "CASCADE"
         })
     }
 
-    return User
+    return Quiz
 }

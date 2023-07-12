@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { Users } = require('../models')
+const { User } = require('../models')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -9,7 +9,7 @@ const jwtSecret = process.env.JWT_SECRET
 
 router.post("/login", async (req, res) => {
     const userDetails = req.body
-    const user = await Users.findOne({ where: {username: userDetails['username']}})
+    const user = await User.findOne({ where: {username: userDetails['username']}})
 
     if (user === null) {
         res.json({auth: false, reason: "noUser"})
@@ -36,13 +36,13 @@ router.post("/register", async (req, res) => {
     userDetails['password'] = hashedPassword
 
     // create the new user
-    await Users.create(userDetails)
+    await User.create(userDetails)
     res.status(201).json({message: 'User created successfully'})
 })
 
 router.get("/usernames", async (req, res) => {
     // send list of usernames
-    usernames = await Users.findAll({attributes:["username"]})
+    usernames = await User.findAll({attributes:["username"]})
     res.json(usernames)
 })
 

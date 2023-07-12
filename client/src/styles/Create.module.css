@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* rgb(232, 66, 24)
+font-family: 'Work Sans', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.body {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(232, 66, 24);
+    justify-content: center;
+    align-items: center;
+}
+
+.metaBody {
+    background-color: white;
+    height: 75vh;
+    width: 85vw;
+    border-radius: 16px;
+    transition: all 0.5s ease;
+}
+
+.metaBody:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0,0,0,0.4) 0px 0px 20px;
+}
+
+h1 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+label {
+    margin-top: 1rem;
+}
+
+.field {
+    margin-top: 0.5rem;
+    height: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 0.5rem;
+}
+
+.options {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+button {
+    width: 5rem;
+    background-color: rgb(13, 114, 209);
+    border: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    margin-top: 3rem;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    box-shadow: rgba(0,0,0,0.2) 4px 4px 5px;
+    transform: scale(1.01);
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+}
+
+.loader {
+    margin-top: 30px;
+    border: 8px solid rgba(0,0,0,0.1);
+    border-bottom: 8px solid rgb(13, 114, 209);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation: spin 1.5s ease-in-out infinite;
+    transition: all 0.2s ease ;
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.finish {
+    width: auto;
+    background-color: rgb(232, 66, 24);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.new {
+    margin-left: 1rem;
+    width: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.options {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fieldTwo {
+    height: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 0.5rem;
+}
+
+.answer {
+    color: green;
+}

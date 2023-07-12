@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from 'axios'
 import styles from "../styles/UserHome.module.css"
@@ -30,7 +30,6 @@ export default function UserHome() {
                         "userID": res.data.userID,
                         "fullName": res.data.fullName
                     }
-                    console.log(userDetails)
                     setUserDetails(userDetails)
                     setIsLoading(false)
                 } else {
@@ -53,9 +52,9 @@ export default function UserHome() {
             <div className={styles.allItems}>
                 <Header name={userDetails.fullName} />
                 <div className={styles.actions}>
-                    <div className={styles.button}>
+                    <Link to="/create" style={{ textDecoration: 'none' }} className={styles.button}>
                         + Create Quiz
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>
