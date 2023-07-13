@@ -30,7 +30,19 @@ Inside the development options, change the values according to your MySQL config
 ### 5. Open seperate terminals for client and react folders
 From the main repo folder, cd client and cd react in different terminals
 
-### 6. Run server
+### 6. Create .env files for both the folders
+Server side
+```
+JWT_SECRET=<some random string>
+```
+
+Client side
+```
+REACT_APP_BASE_URL=http://localhost:3001
+```
+URL would vary if hosted the server on different IP or port. By default, this is the URL for development phase
+
+### 7. Run server
 Update the modules inside **server terminal** using
 ```
 npm update
@@ -41,7 +53,7 @@ Run the server inside **server terminal** using
 npm run dev
 ```
 
-### 7. Run client
+### 8. Run client
 Update the modules inside **client terminal** using
 ```
 npm update
@@ -58,4 +70,4 @@ In the future, you can simply run the
 ```
 npm run dev
 ```
-command after every new version!
+command for both client and server after every new version!
