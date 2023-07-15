@@ -11,6 +11,8 @@ export default function Questions(props) {
     const [num, setNum] = useState(1)
     const [isLoading, setIsLoading] = useState(false)
     const [isFinish, setIsFinish] = useState(false)
+    const [isCreated, setIsCreated] = useState(false)
+    
     const options = {"optionOne":"Option 1", "optionTwo":"Option 2", "optionThree":"Option 3", "optionFour":"Option 4"}
     const navigate = useNavigate()
 
@@ -38,7 +40,10 @@ export default function Questions(props) {
         axios.post(baseURL+"/hub/question", data)
             .then((res) => {
                 if (isFinish) {
-                    navigate("/home")
+                    setIsCreated(true)
+                    setTimeout(() => {
+                        navigate("/home")
+                    }, 3000)
                 } else {
                     setNum(num+1)
                     resetForm(initialValues)
@@ -97,6 +102,8 @@ export default function Questions(props) {
                     </div>}
 
                 <div className={isLoading ? styles.loader : ""}></div>
+
+                {isCreated ? <div className={styles.successful}>Quiz created successfully! Redirecting...</div> : <div></div>}
             </Form>
         )
         }

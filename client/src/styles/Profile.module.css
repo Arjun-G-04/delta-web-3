@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* rgb(232, 66, 24)
+font-family: 'Work Sans', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.body {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: rgb(210, 210, 210);
+    height: 100vh;
+    min-width: 100vw;
+}
+
+.allItems {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 87vw;
+    align-items: center;
+}
+
+.banner {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 1rem;
+    width: 95%;
+    height: 25vh;
+    background-color: rgb(232, 66, 24);
+    color: white;
+    border-radius: 16px;
+    justify-content: center;
+}
+
+.bannerContent {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    align-items: center;
+}
+
+.nameDetails {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.nameDetails h1 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.nameDetails h4 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.profilePic {
+    margin-left: auto;
+    width: 10%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-size: contain;
+}
+
+.mainContent {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 95%;
+    height: 60%;
+    margin-top: 1rem;
+}
+
+.quizList {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 75%;
+    background-color: white;
+    border-radius: 16px;
+    overflow-y: hidden;
+}
+
+.quizList:hover {
+    overflow-y: auto;
+}
+
+.quizList h2 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.quizList h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.friends {
+    margin-left: auto;
+    width: 24%;
+    height: 50%;
+    background-color: white;
+    border-radius: 16px;
+}
+
+.friends h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.insideMargin {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+table {
+    margin-top: 1rem;
+    width: 100%;
+    height: 60%;
+}
+
+th {
+    font-family: 'Work Sans', sans-serif;
+    padding: 0.5rem;
+    height: 2rem;
+    text-align: left;
+    border-bottom: solid 1px;
+}
+
+td {
+    height: 2rem;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5rem;
+}
+
+.quizes:hover {
+    background-color: rgba(232, 66, 24, 0.4);
+    cursor: pointer;
+}
+
+table, th, td {
+    border-collapse: collapse;
+}

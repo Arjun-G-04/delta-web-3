@@ -28,26 +28,26 @@ export default function MenuBar(props) {
     return <div className={styles.menu}>
         <Link to="/home" style={{ textDecoration: 'none' }}>
             <div className={`${styles.menuItem} ${ isHome ? styles.active : styles.inactive}`}>
-                <div style={{backgroundImage: `url('./home.png')`}} className={styles.icon}></div>
+                <div style={{backgroundImage: `url('/home.png')`}} className={styles.icon}></div>
                 <div className={styles.text}>Home</div>
             </div>
         </Link>
         <Link to="/history" style={{ textDecoration: 'none' }}>
             <div className={`${styles.menuItem} ${ isHistory ? styles.active : styles.inactive}`}>
-                <div style={{backgroundImage: `url('./history.png')`}} className={styles.icon}></div>
+                <div style={{backgroundImage: `url('/history.png')`}} className={styles.icon}></div>
                 <div className={styles.text}>History</div>
             </div>
         </Link>
         <Link to="/friends" style={{ textDecoration: 'none' }}>
             <div className={`${styles.menuItem} ${ isFriends ? styles.active : styles.inactive}`}>
-                <div style={{backgroundImage: `url('./friends.png')`}} className={styles.icon}></div>
+                <div style={{backgroundImage: `url('/friends.png')`}} className={styles.icon}></div>
                 <div className={styles.text}>Friends</div>
             </div>
         </Link>
 
         <div className={styles.logout}>
             <div onClick={logout} className={`${styles.menuItem} ${styles.inactive}`}>
-                <div style={{backgroundImage: `url('./logout.png')`}} className={styles.icon}></div>
+                <div style={{backgroundImage: `url('/logout.png')`}} className={styles.icon}></div>
                 <div className={styles.text}>Logout</div>
             </div>
         </div>

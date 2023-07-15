@@ -18,7 +18,7 @@ export default function Meta(props) {
     })
 
     function onSubmit(data) {
-        data["userId"] = userId
+        data["UserId"] = userId
         axios.post(baseURL+"/hub/meta", data)
             .then((res) => {
                 setQuizId(res.data.quizId)

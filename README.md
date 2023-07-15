@@ -5,7 +5,7 @@ This is my code for Task 3 of Delta Inductions 2023 (Web development)
 ## Normal Mode
 - ~Authentication system allowing registration and log in~
 - ~Users can create quizzes~
-- Search bar allowing to search for other users
+- ~Search bar allowing to search for other users~
 - Profile page of users - Should have method to take up their quizzes
 - Allow users to see scores of quizzes they have taken
 

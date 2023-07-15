@@ -134,3 +134,13 @@ button:hover {
 .answer {
     color: green;
 }
+
+.successful {
+    margin-top: 2rem;
+    font-size: 18px;
+    border-radius: 8px;
+    background-color: rgb(6, 184, 6);
+    padding: 12px;
+    color: white;
+    transition: all 0.2s ease ;
+}

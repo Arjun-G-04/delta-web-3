@@ -28,7 +28,8 @@ export default function UserHome() {
                     setIsAuth(true)
                     const userDetails = {
                         "userID": res.data.userID,
-                        "fullName": res.data.fullName
+                        "fullName": res.data.fullName,
+                        "username": res.data.username
                     }
                     setUserDetails(userDetails)
                     setIsLoading(false)
@@ -50,7 +51,7 @@ export default function UserHome() {
             <MenuBar loc="home"/>
 
             <div className={styles.allItems}>
-                <Header name={userDetails.fullName} />
+                <Header name={userDetails.fullName} username={userDetails.username}/>
                 <div className={styles.actions}>
                     <Link to="/create" style={{ textDecoration: 'none' }} className={styles.button}>
                         + Create Quiz

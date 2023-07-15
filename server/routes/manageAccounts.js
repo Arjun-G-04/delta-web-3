@@ -46,4 +46,9 @@ router.get("/usernames", async (req, res) => {
     res.json(usernames)
 })
 
+router.get("/users", async (req, res) => {
+    users = await User.findAll({attributes:["username", "fullName"]})
+    res.json(users)
+})
+
 module.exports = router
