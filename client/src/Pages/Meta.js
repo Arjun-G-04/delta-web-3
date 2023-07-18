@@ -27,7 +27,7 @@ export default function Meta(props) {
     }
 
     return <div className={styles.metaBody}>
-        <Formik 
+        <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={onSubmit}

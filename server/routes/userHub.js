@@ -28,6 +28,10 @@ const verifyJWT = (req, res, next) => {
     }
 }
 
+router.get("/isAuth", verifyJWT, async(req, res) => {
+    res.json({auth: req.auth})
+})
+
 router.get("/home", verifyJWT, async (req, res) => {
     if (req.auth) {
         const user = await User.findOne({ where: {id: req.userID}})
@@ -50,12 +54,12 @@ router.post("/question", async (req, res) => {
 })
 
 router.get("/profile/:username", verifyJWT, async (req, res) => {
-    if (req.userID === -1) {
+    const username = req.params.username
+    const viewUser = await User.findOne({where: {username: username}})
+    if (req.userID === -1 || viewUser === null) {
         res.json({auth: false})
     } else {
-        const username = req.params.username
         const currentUser = await User.findOne({where: {id: req.userID}})
-        const viewUser = await User.findOne({where: {username: username}})
 
         const quizes = await Quiz.findAll({where: {UserId: viewUser.id}}) 
 
@@ -64,6 +68,19 @@ router.get("/profile/:username", verifyJWT, async (req, res) => {
         } else {
             res.json({auth: true, owner: false, fullName: viewUser.fullName, quizes: quizes})
         }
+    }
+})
+
+router.get("/quiz/:id", async (req, res) => {
+    const id = req.params.id
+    const quiz = await Quiz.findOne({where: {id: id}})
+
+    if (quiz === null) {
+        res.json({quiz: false})
+    } else {
+        const author = await User.findOne({where: {id: quiz.UserId}})
+        const questions = await Question.findAll({where: {QuizId: id}})
+        res.json({quiz: true, name: quiz.name, author: author.fullName, questions: questions})
     }
 })
 

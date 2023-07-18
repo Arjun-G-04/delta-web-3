@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* rgb(232, 66, 24)
+font-family: 'Work Sans', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.body {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: rgb(232, 66, 24);
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.quizBody {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: white;
+    height: 75vh;
+    width: 85vw;
+    border-radius: 16px;
+    transition: all 0.5s ease;
+}
+
+.quizBody:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0,0,0,0.4) 0px 0px 20px;
+}
+
+.insideQuizBody {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.insideQuizBody h1 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.insideQuizBody h2 {
+    margin-top: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.insideQuizBody p {
+    margin-top: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.insideQuizBody span {
+    margin-top: 1rem;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(13, 114, 209);
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.insideQuizBody span:hover {
+    transform: scale(1.02);
+    box-shadow: rgba(0,0,0,0.4) 0px 0px 5px;
+}
+
+.insideResultBody {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.insideResultBody h1 {
+    margin-bottom: 1rem;
+}
+
+.insideResultBody h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.insideResultBody span {
+    margin-top: 1rem;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(13, 114, 209);
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.insideResultBody span:hover {
+    transform: scale(1.02);
+    box-shadow: rgba(0,0,0,0.4) 0px 0px 5px;
+}

@@ -38,7 +38,6 @@ export default function Profile() {
                     
                     if (res.data.quizes.length === 0) {
                         setNoQuiz(true)
-                        console.log("here")
                     }
 
                     if (res.data.owner) {
@@ -54,6 +53,8 @@ export default function Profile() {
                             setOwnerDetails(resp.data)
                             setLoading(false)
                         })
+                } else {
+                    setLoading(false)
                 }
             })
     }
@@ -88,7 +89,7 @@ export default function Profile() {
                                         <th>Created On</th>
                                     </tr>
                                     {quizes.map((quiz) => {
-                                        return <tr onClick={() => {navigate(`/quiz/${quiz.id}/view`)}} className={styles.quizes}>
+                                        return <tr onClick={() => {navigate(`/quiz/${quiz.id}/play`)}} className={styles.quizes}>
                                             <td>{quiz.name}</td>
                                             <td>{quiz.createdAt.slice(0,10)}</td>
                                         </tr>

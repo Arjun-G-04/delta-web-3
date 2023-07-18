@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* rgb(232, 66, 24)
+font-family: 'Work Sans', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.form {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-flow: column;
+}
+
+.form h3, h4 {
+    font-family: 'Work Sans', sans-serif;
+    margin-top: 1rem;
+}
+
+.form h4 {
+    margin-bottom: 0.5rem;
+}
+
+.options {
+    display: flex;
+    flex-flow: row;
+    margin-right: 2rem;
+    border-radius: 0.1rem;
+    padding: 0.5rem;
+}
+
+.form p {
+    font-family: 'Poppins', sans-serif;
+    margin-left: 0.5rem;
+}
+
+.next {
+    width: 5rem;
+    background-color: rgb(13, 114, 209);
+    border: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    margin-top: 2rem;
+    transition: all 0.2s ease;
+}
+
+.error {
+    font-family: 'Poppins', sans-serif;
+    color: red;
+    font-size: 0.9rem;
+}
