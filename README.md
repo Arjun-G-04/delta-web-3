@@ -7,7 +7,7 @@ This is my code for Task 3 of Delta Inductions 2023 (Web development)
 - ~Users can create quizzes~
 - ~Search bar allowing to search for other users~
 - ~Profile page of users - Should have method to take up their quizzes~
-- Allow users to see scores of quizzes they have taken
+- ~Allow users to see scores of quizzes they have taken~
 
 # Setup
 ### 1. Clone the repository

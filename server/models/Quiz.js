@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: "CASCADE",
             onUpdate: "CASCADE"
         })
+
+        Quiz.hasMany(models.Score, {
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE"
+        })
     }
 
     return Quiz

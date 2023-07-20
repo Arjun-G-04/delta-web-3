@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
-const { User, Quiz, Question } = require('../models')
+const { User, Quiz, Question, Score } = require('../models')
 
 require('dotenv').config()
 const jwtSecret = process.env.JWT_SECRET
@@ -81,6 +81,48 @@ router.get("/quiz/:id", async (req, res) => {
         const author = await User.findOne({where: {id: quiz.UserId}})
         const questions = await Question.findAll({where: {QuizId: id}})
         res.json({quiz: true, name: quiz.name, author: author.fullName, questions: questions})
+    }
+})
+
+router.get("/quiz/meta/:id", async (req, res) => {
+    const id = req.params.id
+    const quiz = await Quiz.findOne({where: {id: id}})
+
+    if (quiz === null) {
+        res.json({quiz: false})
+    } else {
+        const author = await User.findOne({where: {id: quiz.UserId}})
+        res.json({quiz: true, name: quiz.name, author: author.fullName})
+    }
+})
+
+router.post("/quiz/score", async(req, res) => {
+    const data = req.body
+    const score = await Score.create(data)
+    res.json({status:"done"})
+})
+
+router.get("/history/:id", async(req, res) => {
+    const userID = req.params.id
+    const scores = await Score.findAll({where: {UserId: userID}})
+    const resJSON = {}
+
+    scores.forEach((score) => {
+        const date = score.createdAt.toLocaleDateString('en-GB')
+        const time = score.createdAt.toLocaleTimeString('en-US', { hour12: false }).slice(0, 5)
+        const quizID = score.QuizId
+
+        if (date in resJSON) {
+            resJSON[date].push({time: time, score: score.score, maxScore: score.maxScore, quizID: quizID})
+        } else {
+            resJSON[date] = [{time: time, score: score.score, maxScore: score.maxScore, quizID: quizID}]
+        }
+    });
+
+    if (scores === null) {
+        res.json({isNull: true})
+    } else {
+        res.json(resJSON)
     }
 })
 

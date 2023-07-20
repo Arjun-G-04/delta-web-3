@@ -12,6 +12,7 @@ export default function QuizView() {
     const { quizID } = useParams()
     const [loading, setLoading] = useState(true)
     const [auth, setAuth] = useState(false)
+    const [userID, setUserID] = useState(null)
     const [pageNo, setPageNo] = useState(0)
     const [quizData, setQuizData] = useState(null)
     const [currentQuestion, setCurrentQuestion] = useState(null)
@@ -27,6 +28,8 @@ export default function QuizView() {
             if (pageNo <= quizData.questions.length) {
                 setCurrentQuestion(quizData.questions[pageNo-1])
             } else {
+                const data = {score: score, QuizId: quizID, UserId: userID, maxScore: quizData.questions.length}
+                axios.post(baseURL+"/hub/quiz/score", data)
                 setCurrentQuestion("over")
             }
         }
@@ -40,6 +43,7 @@ export default function QuizView() {
         })
             .then((res) => {
                 setAuth(res.data.auth)
+                setUserID(res.data.userID)
             })
     }
 
