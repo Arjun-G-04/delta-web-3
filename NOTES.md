@@ -10,6 +10,7 @@ The back end of my web application is run using **Express**, a popular backend f
 - **nodemon** - for faster back end development
 - **bcrypt** - for hashing password
 - **jsonwebtoken** - for user authentication
+- **multer** - for handling file uploads
 
 # Front end
 ## Overview

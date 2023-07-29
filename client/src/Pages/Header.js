@@ -9,12 +9,20 @@ export default function Header(props) {
     const [data, setData] = useState([])
     const [filteredData, setFilteredData] = useState([])
     const [inpValue, setInpValue] = useState("")
+    const [imageURL, setImageURL] = useState('/defaultProfile.png')
     const { name, username } = props
 
     useEffect(() => {
         axios.get(baseURL+"/users")
             .then((res) => {
                 setData(res.data)
+            })
+
+        axios.get(baseURL+`/hub/profilePic/${username}`, {
+            responseType: "blob"
+        })
+            .then((res) => {
+                setImageURL(URL.createObjectURL(res.data))
             })
     },[])
 
@@ -61,8 +69,11 @@ export default function Header(props) {
             </div>
         </div>
         <div className={styles.user}>
-            <Link to={`/user/${username}`} style={{ textDecoration: 'none' }}>
+            <Link to={`/user/${username}`} style={{ textDecoration: 'none' , textAlign: "right"}}>
                 <span>{name}</span>
+            </Link>
+            <Link to={`/user/${username}`} style={{ textDecoration: 'none' }}>
+                <div className={styles.pic} style={{backgroundImage: `url('${imageURL}')`}}></div>
             </Link>
         </div>
     </div>

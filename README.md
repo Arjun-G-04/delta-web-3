@@ -1,13 +1,13 @@
-# delta-web-3
-This is my code for Task 3 of Delta Inductions 2023 (Web development)
+# Hacker Mode
+This is the hacker mode of task 3
 
 # Objectives
-## Normal Mode
-- ~Authentication system allowing registration and log in~
-- ~Users can create quizzes~
-- ~Search bar allowing to search for other users~
-- ~Profile page of users - Should have method to take up their quizzes~
-- ~Allow users to see scores of quizzes they have taken~
+## Hacker Mode
+- ~Allow users to upload photos for their profile.~
+- Add a feature for connecting people by sending friend requests.
+- Allow private quizzes, which can only be taken by friends.
+- Add a feature of adding tags to quizzes so they can be filtered and searched for easily.
+- Integrate authentication with Dauth.
 
 # Setup
 ### 1. Clone the repository
