@@ -1,5 +1,5 @@
 # delta-web-3
-This is my **latest code**(most recent version) for Task 3 of the Delta Inductions 2023 (Web development)
+This is my **latest code** (most recent version) for Task 3 of the Delta Inductions 2023 (Web development)
 
 # Objectives
 ## Normal Mode (Completed ✅)
@@ -21,15 +21,15 @@ Inside MySQL Workbench, open the default local instance
 ### 4. Create quizdb
 Create database **quizdb** in this local instance of MySQL
 
-### 4. Configure database in config.json
+### 5. Configure database in config.json
 Navigate to server > config > config.json
 
 Inside the development options, change the values according to your MySQL configurations (username and password)
 
-### 5. Open seperate terminals for client and react folders
+### 6. Open seperate terminals for client and react folders
 From the main repo folder, cd client and cd react in different terminals
 
-### 6. Create .env files for both the folders
+### 7. Create .env files for both the folders
 Server side
 ```
 JWT_SECRET=<some random string>
@@ -41,7 +41,7 @@ REACT_APP_BASE_URL=http://localhost:3001
 ```
 URL would vary if hosted the server on different IP or port. By default, this is the URL for development phase
 
-### 7. Run server
+### 8. Run server
 Update the modules inside **server terminal** using
 ```
 npm update
@@ -52,7 +52,7 @@ Run the server inside **server terminal** using
 npm run dev
 ```
 
-### 8. Run client
+### 9. Run client
 Update the modules inside **client terminal** using
 ```
 npm update
