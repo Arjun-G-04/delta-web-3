@@ -1,5 +1,5 @@
 # delta-web-3
-This is my code for Task 3 of Delta Inductions 2023 (Web development)
+This is my **latest code**(most recent version) for Task 3 of the Delta Inductions 2023 (Web development)
 
 # Objectives
 ## Normal Mode (Completed ✅)
