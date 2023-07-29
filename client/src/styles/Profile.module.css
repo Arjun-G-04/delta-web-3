@@ -60,9 +60,31 @@ font-family: 'Poppins', sans-serif; */
 .profilePic {
     margin-left: auto;
     width: 10%;
+    display: flex;
+    flex-flow: column;
+}
+
+.profilePic input {
+    display: none;
+}
+
+.inputIcon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: auto;
+    transition: all 0.5s ease;
+}
+
+.inputIcon:hover {
+    transform: scale(1.1);
+}
+
+.pic {
     aspect-ratio: 1;
     border-radius: 50%;
     background-size: contain;
+    box-shadow: rgba(0,0,0,0.4) 0px 0px 8px 2px;
 }
 
 .mainContent {

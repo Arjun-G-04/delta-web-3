@@ -1,7 +1,23 @@
 const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
+const multer = require('multer')
+const path = require("path")
+const fs = require("fs")
 const { User, Quiz, Question, Score } = require('../models')
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.resolve("images/"))
+    },
+    filename: (req, file, cb) => {
+        const username = req.params.username
+        const fileName = `${username}.png`
+        cb(null, fileName)
+    }
+})
+
+const upload = multer({storage: storage})
 
 require('dotenv').config()
 const jwtSecret = process.env.JWT_SECRET
@@ -123,6 +139,21 @@ router.get("/history/:id", async(req, res) => {
         res.json({isNull: true})
     } else {
         res.json(resJSON)
+    }
+})
+
+router.post("/upload/:username", upload.single("profilePic"), (req, res) => {
+    return res.json({status: "done"})
+})
+
+router.get("/profilePic/:username", (req, res) => {
+    const username = req.params.username
+    const filePath = path.resolve(`images/${username}.png`)
+
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath)
+    } else {
+        res.sendFile(path.resolve(`images/defaultProfilePic.png`))
     }
 })
 

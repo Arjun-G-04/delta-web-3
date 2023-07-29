@@ -1,5 +1,6 @@
 import { useNavigate, useParams} from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import { BiSolidEdit } from "react-icons/bi"
 import styles from "../styles/Profile.module.css"
 import Loading from "./Loading"
 import axios from "axios"
@@ -16,12 +17,15 @@ export default function Profile() {
     const [loading, setLoading] = useState(true)
     const [quizes, setQuizes] = useState([])
     const [noQuiz, setNoQuiz] = useState(false)
+    const [imageURL, setImageURL] = useState('/defaultProfile.png')
+    const fileInputRef = useRef(null)
     const navigate = useNavigate()
     
     useEffect(() => {
         setOwner(false)
         setNoQuiz(false)
         getInitialData()
+        changeProfilePic()
     }, [username])
 
     function getInitialData() {
@@ -59,6 +63,30 @@ export default function Profile() {
             })
     }
 
+    function inputClick() {
+        fileInputRef.current.click()
+    }
+
+    function onFileChange(event) {
+        const uploadedFile = event.target.files[0]
+        const formData = new FormData()
+        formData.append('profilePic', uploadedFile)
+        fileInputRef.current.value = null
+        axios.post(baseURL+`/hub/upload/${username}`, formData)
+            .then((res) => {
+                changeProfilePic()
+            })
+    }
+
+    function changeProfilePic() {
+        axios.get(baseURL+`/hub/profilePic/${username}`, {
+            responseType: "blob"
+        })
+            .then((res) => {
+                setImageURL(URL.createObjectURL(res.data))
+            })
+    }
+
     if (loading) {
         return <Loading />
     } else {
@@ -73,7 +101,11 @@ export default function Profile() {
                                 <h1>{profileDetails['fullName']}</h1>
                                 <h4>{username}</h4>
                             </div>
-                            <div style={{backgroundImage: "url('/defaultProfile.png')"}}className={styles.profilePic}></div>
+                            <div className={styles.profilePic}>
+                                <div className={styles.pic} style={{backgroundImage: `url('${imageURL}')`}}></div>
+                                {owner ? <div className={styles.inputIcon} onClick={inputClick}><BiSolidEdit /><input name="profilePic" type="file" accept="image/*" ref={fileInputRef} onChange={onFileChange} /></div>
+                                    : ""}
+                            </div>
                         </div>
                     </div>
 
