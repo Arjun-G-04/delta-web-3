@@ -6,6 +6,7 @@ import Create from "./Pages/Create"
 import Profile from "./Pages/Profile"
 import QuizView from "./Pages/QuizView"
 import History from "./Pages/History"
+import Friend from "./Pages/Friend"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/user/:username" element={<Profile />} />
         <Route path="/quiz/:quizID/play" element={<QuizView />} />
         <Route path="/history" element={<History />} />
+        <Route path='/friends' element={<Friend />} />
       </Routes>
     </Router>
   </div>

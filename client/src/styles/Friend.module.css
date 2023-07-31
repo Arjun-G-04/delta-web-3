@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-/* rgb(232, 66, 24)
-font-family: 'Work Sans', sans-serif;
-font-family: 'Poppins', sans-serif; */
 
 * {
     padding: 0;
@@ -21,20 +17,19 @@ font-family: 'Poppins', sans-serif; */
     align-items: center;
     width: 87vw;
     height: 100vh;
-    overflow: hidden;
 }
 
-.history {
+.friends {
     width: 95%;
     background-color: white;
+    flex-grow: 1;
     margin-bottom: 1rem;
     border-radius: 4px;
     margin-top: 1rem;
     overflow-y: scroll;
-    flex-grow: 1;
 }
 
-.insideHistory {
+.insideFriends {
     display: flex;
     flex-flow: column;
     margin: 2rem;
@@ -42,26 +37,17 @@ font-family: 'Poppins', sans-serif; */
     height: 100%;
 }
 
-.date {
-    margin-top: 1rem;
-}
-
-.insideHistory h2 {
-    font-family: 'Work Sans', sans-serif;
-}
-
-.insideHistory h3 {
-    font-family: 'Work Sans', sans-serif;
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.insideHistory table {
+.insideFriends table {
     margin-top: 1rem;
     width: 100%;
+    height: auto;
 }
 
-.insideHistory th {
+.insideFriends tr {
+    height: 0;
+}
+
+.insideFriends th {
     font-family: 'Work Sans', sans-serif;
     padding: 0.5rem;
     height: 2rem;
@@ -69,16 +55,22 @@ font-family: 'Poppins', sans-serif; */
     border-bottom: solid 1px;
 }
 
-.insideHistory td {
+.insideFriends td {
     height: 2rem;
     font-family: 'Poppins', sans-serif;
     padding: 0.5rem;
 }
 
-.insideHistory table, th, td {
+.insideFriends table, th, td {
     border-collapse: collapse;
 }
 
 .entry:hover {
     background-color: rgba(232, 66, 24, 0.4);
+}
+
+.insideFriends p {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-top: 2rem;
 }

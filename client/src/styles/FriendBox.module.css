@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* rgb(232, 66, 24)
+font-family: 'Work Sans', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+.friendInfo {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.requestRow {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.requestRow div {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    margin-left: auto;
+}
