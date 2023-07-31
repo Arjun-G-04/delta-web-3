@@ -160,7 +160,7 @@ th {
     border-bottom: solid 1px;
 }
 
-td {
+.insideMargin td {
     height: 2rem;
     font-family: 'Poppins', sans-serif;
     padding: 0.5rem;
@@ -173,4 +173,20 @@ td {
 
 table, th, td {
     border-collapse: collapse;
+}
+
+.quizName {
+    display: flex;
+    flex-flow: row;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.private {
+    background-color: rgba(128,128,128, 0.2);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    border-radius: 1rem;
 }

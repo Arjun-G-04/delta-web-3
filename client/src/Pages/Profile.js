@@ -124,7 +124,7 @@ export default function Profile() {
                                     </tr>
                                     {quizes.map((quiz) => {
                                         return <tr onClick={() => {navigate(`/quiz/${quiz.id}/play`)}} className={styles.quizes}>
-                                            <td>{quiz.name}</td>
+                                            <td className={styles.quizName}><div>{quiz.name}</div> {quiz.visibility === "private" ? <div className={styles.private}><p>Private</p></div> : ""}</td>
                                             <td>{quiz.createdAt.slice(0,10)}</td>
                                         </tr>
                                     })}

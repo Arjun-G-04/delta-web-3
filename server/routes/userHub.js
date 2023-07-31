@@ -69,20 +69,41 @@ router.post("/question", async (req, res) => {
     res.json({status:"done"})
 })
 
-router.get("/profile/:username", verifyJWT, async (req, res) => {
+router.get("/profile/:username/", verifyJWT, async (req, res) => {
     const username = req.params.username
     const viewUser = await User.findOne({where: {username: username}})
     if (req.userID === -1 || viewUser === null) {
         res.json({auth: false})
     } else {
         const currentUser = await User.findOne({where: {id: req.userID}})
-
-        const quizes = await Quiz.findAll({where: {UserId: viewUser.id}}) 
+        const friendEntry = await Friend.findOne({where: {userId: currentUser.id, friendId: viewUser.id}})
+        let friendStatus = false
 
         if (currentUser.id === viewUser.id) {
-            res.json({auth: true, owner: true, fullName: viewUser.fullName, id: viewUser.id, quizes: quizes})
+            friendStatus = true
+        } else if (friendEntry != null) {
+            if (friendEntry.status === "accepted") {
+                friendStatus = true
+            }
+        }
+
+        const quizes = await Quiz.findAll({where: {UserId: viewUser.id}}) 
+        let outputQuizes = []
+
+        for (i = 0 ; i < quizes.length ; i++) {
+            if (quizes[i].visibility === 'private') {
+                if (friendStatus) {
+                    outputQuizes.push(quizes[i])
+                }
+            } else {
+                outputQuizes.push(quizes[i])
+            }
+        }
+
+        if (currentUser.id === viewUser.id) {
+            res.json({auth: true, owner: true, fullName: viewUser.fullName, id: viewUser.id, quizes: outputQuizes})
         } else {
-            res.json({auth: true, owner: false, fullName: viewUser.fullName, id: viewUser.id, quizes: quizes})
+            res.json({auth: true, owner: false, fullName: viewUser.fullName, id: viewUser.id, quizes: outputQuizes})
         }
     }
 })
