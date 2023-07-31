@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const multer = require('multer')
 const path = require("path")
 const fs = require("fs")
-const { User, Quiz, Question, Score } = require('../models')
+const { User, Quiz, Question, Score, Friend } = require('../models')
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -80,9 +80,9 @@ router.get("/profile/:username", verifyJWT, async (req, res) => {
         const quizes = await Quiz.findAll({where: {UserId: viewUser.id}}) 
 
         if (currentUser.id === viewUser.id) {
-            res.json({auth: true, owner: true, fullName: viewUser.fullName, quizes: quizes})
+            res.json({auth: true, owner: true, fullName: viewUser.fullName, id: viewUser.id, quizes: quizes})
         } else {
-            res.json({auth: true, owner: false, fullName: viewUser.fullName, quizes: quizes})
+            res.json({auth: true, owner: false, fullName: viewUser.fullName, id: viewUser.id, quizes: quizes})
         }
     }
 })
@@ -155,6 +155,73 @@ router.get("/profilePic/:username", (req, res) => {
     } else {
         res.sendFile(path.resolve(`images/defaultProfilePic.png`))
     }
+})
+
+router.post("/friendRequest", async(req, res) => {
+    await Friend.create(req.body)
+    res.json({status: "done"})
+})
+
+router.get("/friendCheck/:userId/:friendId", async(req, res) => {
+    const userId = req.params.userId
+    const friendId = req.params.friendId
+
+    const record = await Friend.findOne({where: {userId: userId, friendId: friendId}})
+
+    if (record === null) {
+        res.json({status: "request"})
+    } else {
+        if (record.status === "requested") {
+            res.json({status: "requested"})
+        } else if (record.status === "accepted") {
+            res.json({status: "accepted"})
+        }
+    }
+})
+
+router.get("/requestCheck/:friendId", async(req, res) => {
+    const friendId = req.params.friendId
+    const requests = await Friend.findAll({where: {friendId: friendId, status: "requested"}})
+    let output = []
+
+    for (i = 0 ; i < requests.length ; i++) {
+        const user = await User.findOne({where: {id: requests[i].userId}})
+        output.push({username: user.username, reqId: requests[i].id})
+    }
+    
+    res.json({requests: output})
+})
+
+router.get("/requestUpdate/:id/:status", async(req, res) => {
+    const status = req.params.status
+    const id = req.params.id
+    const request = await Friend.findOne({where: {id: id}})
+    await Friend.update({status: status}, {where: {id: id}})
+
+    const alreadyExist = await Friend.findOne({where: {userId: request.friendId, friendId: request.userId}})
+    console.log(alreadyExist)
+    if (alreadyExist) {
+        Friend.update({status: status}, {where: {userId: request.friendId, friendId: request.userId}})
+    } else {
+        await Friend.create({userId: request.friendId, friendId: request.userId, status: "accepted"})
+    }
+
+    res.json({status: "done"})
+})
+
+router.get("/friends/:id", async(req, res) => {
+    const id = req.params.id
+    const friends = await Friend.findAll({where: {userId: id, status: "accepted"}})
+    let output = []
+
+    if (friends) {
+        for (i = 0 ; i < friends.length ; i++) {
+            const friend = await User.findOne({where: {id: friends[i].friendId}})
+            output.push({name: friend.fullName, username: friend.username})
+        }
+    }
+
+    res.json({output: output})
 })
 
 module.exports = router

@@ -98,7 +98,7 @@ font-family: 'Poppins', sans-serif; */
 .quizList {
     display: flex;
     flex-flow: column nowrap;
-    width: 75%;
+    width: 60%;
     background-color: white;
     border-radius: 16px;
     overflow-y: hidden;
@@ -120,14 +120,24 @@ font-family: 'Poppins', sans-serif; */
 
 .friends {
     margin-left: auto;
-    width: 24%;
-    height: 50%;
+    width: 39%;
+    height: 40%;
     background-color: white;
     border-radius: 16px;
+    overflow-y: scroll;
 }
 
 .friends h2 {
     font-family: 'Poppins', sans-serif;
+}
+
+.friends p {
+    margin-top: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.friends button {
+    margin-top: 1rem;
 }
 
 .insideMargin {

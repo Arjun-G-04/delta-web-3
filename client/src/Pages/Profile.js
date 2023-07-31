@@ -6,6 +6,7 @@ import Loading from "./Loading"
 import axios from "axios"
 import MenuBar from "./MenuBar"
 import Header from "./Header"
+import FriendBox from "./FriendBox"
 
 export default function Profile() {
     const baseURL = process.env.REACT_APP_BASE_URL
@@ -18,6 +19,7 @@ export default function Profile() {
     const [quizes, setQuizes] = useState([])
     const [noQuiz, setNoQuiz] = useState(false)
     const [imageURL, setImageURL] = useState('/defaultProfile.png')
+    const [friendStatus, setFriendStatus] = useState("request")
     const fileInputRef = useRef(null)
     const navigate = useNavigate()
     
@@ -37,7 +39,7 @@ export default function Profile() {
             .then((res) => {
                 if (res.data.auth) {
                     setAuth(true)
-                    setProfileDetails({"fullName":res.data.fullName})
+                    setProfileDetails({"fullName":res.data.fullName, "id":res.data.id})
                     setQuizes(res.data.quizes)
                     
                     if (res.data.quizes.length === 0) {
@@ -133,7 +135,10 @@ export default function Profile() {
                         </div>
                         <div className={styles.friends}>
                             <div className={styles.insideMargin}>
-                                <h2>Friend Request</h2>
+                                <h2>{ owner ? "Friend Requests" : "Send Friend Request"}</h2>
+                                <div className={styles.friendBox}>
+                                <FriendBox userId={ownerDetails.userID} friendId={profileDetails.id} status={friendStatus} fullName={profileDetails.fullName} setStatus={setFriendStatus} />
+                                </div>
                             </div>
                         </div>
                     </div>
